@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONGKONG 커뮤니티</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="community.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="kongkong1.html">KONGKONG</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="Business_information.html">업무 안내</a></li>
+                    <li><a href="chatbot_page.html">챗봇 상담</a></li>
+                    <li><a href="community_main.html">커뮤니티</a></li>
+                    <li><a href="resources_page.html">자료마당</a></li>
+                    <li><a href="notification.html">공지사항</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 게시판 종류 네비게이션 -->
+    <div class="board-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#">고민상담</a></li>
+                <li><a href="#">해결사례</a></li>
+                <li><a href="#">자유게시판</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <section class="post-list">
+            <h2>커뮤니티 게시글</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>날짜</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="#">첫 번째 게시글 제목</a></td>
+                        <td>작성자1</td>
+                        <td>2024-08-11</td>
+                        <td>123</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="#">두 번째 게시글 제목</a></td>
+                        <td>작성자2</td>
+                        <td>2024-08-10</td>
+                        <td>98</td>
+                    </tr>
+                    <!-- 추가 게시글 행 -->
+                </tbody>
+            </table>
+            <button class="write-btn">글쓰기</button>
+        </section>
+
+        <section class="post-content">
+            <h2>게시글 제목</h2>
+            <div class="post-details">
+                <span>작성자: 작성자1</span>
+                <span>날짜: 2024-08-11</span>
+                <span>조회수: 123</span>
+            </div>
+            <div class="post-body">
+                여기 게시글 내용이 표시됩니다.
+            </div>
+            <div class="comment-section">
+                <h3>댓글</h3>
+                <div class="comment">
+                    <span class="comment-author">댓글작성자1</span>
+                    <span class="comment-date">2024-08-11 10:00</span>
+                    <p>댓글 내용입니다.</p>
+                </div>
+                <div class="comment">
+                    <span class="comment-author">댓글작성자2</span>
+                    <span class="comment-date">2024-08-11 10:05</span>
+                    <p>또 다른 댓글 내용입니다.</p>
+                </div>
+                <div class="comment-form">
+                    <textarea placeholder="댓글을 작성해주세요..."></textarea>
+                    <button class="comment-submit">댓글 작성</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 KONGKONG. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
