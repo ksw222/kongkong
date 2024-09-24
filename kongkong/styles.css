@@ -52,9 +52,28 @@ header nav ul li a {
     font-size: 1.2em;
 }
 
+/* 로그인 버튼을 상단 우측으로 배치 */
+.login-btn {
+    background-color: #fff;
+    color: #081F5C;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.login-btn:hover {
+    background-color: #d6d6d6;
+    color: #081F5C;
+}
+
+
 /* 히어로 섹션 스타일 */
 .hero {
-    background: url('hero-bg.jpg') no-repeat center center/cover;
+    background: url('team.jpg') no-repeat center center/cover;
     color: #fff;
     padding: 80px 0;
     text-align: center;
