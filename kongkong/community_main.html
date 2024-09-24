@@ -80,16 +80,6 @@
             </div>
             <div class="comment-section">
                 <h3>댓글</h3>
-                <div class="comment">
-                    <span class="comment-author">댓글작성자1</span>
-                    <span class="comment-date">2024-08-11 10:00</span>
-                    <p>댓글 내용입니다.</p>
-                </div>
-                <div class="comment">
-                    <span class="comment-author">댓글작성자2</span>
-                    <span class="comment-date">2024-08-11 10:05</span>
-                    <p>또 다른 댓글 내용입니다.</p>
-                </div>
                 <div class="comment-form">
                     <textarea placeholder="댓글을 작성해주세요..."></textarea>
                     <button class="comment-submit">댓글 작성</button>
@@ -103,6 +93,33 @@
             <p>&copy; 2024 KONGKONG. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- 댓글 로딩 -->
+    <script>
+        const commentButton = document.querySelector('.comment-submit');
+        const commentInput = document.querySelector('.comment-form textarea');
+        const commentList = document.querySelector('.comment-section');
+    
+        commentButton.addEventListener('click', () => {
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                // 댓글 요소 생성
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+                commentDiv.innerHTML = `
+                    <span class="comment-author">사용자</span>
+                    <span class="comment-date">${new Date().toLocaleString()}</span>
+                    <p>${commentText}</p>
+                `;
+                // 댓글을 목록에 추가
+                commentList.appendChild(commentDiv);
+                // 입력 필드 초기화
+                commentInput.value = '';
+            } else {
+                alert('댓글 내용을 입력해주세요.');
+            }
+        });
+    </script>
 
 </body>
 </html>
