@@ -221,3 +221,69 @@ footer .footer-content {
     margin: 0 auto;
     font-size: 14px;
 }
+
+/* 게시글 작성 폼 스타일 */
+.write-post {
+    width: 800px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.write-post h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #081F5C;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #081F5C;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.submit-btn, .cancel-btn {
+    background-color: #081F5C;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cancel-btn {
+    background-color: #666666;
+}
+
+.submit-btn:hover, .cancel-btn:hover {
+    opacity: 0.9;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONGKONG 커뮤니티</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="community.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="kongkong1.html">KONGKONG</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="Business_information.html">업무 안내</a></li>
+                    <li><a href="chatbot_page.html">챗봇 상담</a></li>
+                    <li><a href="community_main.html">커뮤니티</a></li>
+                    <li><a href="resources_page.html">자료마당</a></li>
+                    <li><a href="notification.html">공지사항</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="write-post">
+            <h2>게시글 작성</h2>
+            <form action="submit_post.html" method="post">
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">작성자</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">내용</label>
+                    <textarea id="content" name="content" rows="10" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">작성하기</button>
+                    <button type="button" class="cancel-btn" onclick="window.location.href='community_main.html'">취소</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 KONGKONG. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
