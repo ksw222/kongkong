@@ -1,0 +1,115 @@
+/* General reset and body styling */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* 링크 색상도 상속받도록 설정 */
+}
+
+/* Centering the KONGKONG heading */
+h1 {
+    text-align: center;
+    color: #081F5C;
+    font-size: 2em;
+    margin-bottom: 40px; /* Spacing between heading and signup box */
+}
+
+/* Signup box styling */
+.signup-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Signup form heading */
+h2 {
+    text-align: center;
+    color: #081F5C;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+}
+
+/* Label and input field styling */
+.signup-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #333;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"],
+.signup-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Signup button styling */
+.signup-form .btn {
+    width: 100%;
+    background-color: #081F5C;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-form .btn:hover {
+    background-color: #062A83; /* Darker shade on hover */
+}
+
+/* Login link styling */
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.login-link a {
+    color: #081F5C;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+    color: #404040;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
