@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONGKONG - 챗봇 상담</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="kongkong1.html">KONGKONG</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="Business_information.html">업무 안내</a></li>
+                    <li><a href="chatbot_page.html">챗봇 상담</a></li>
+                    <li><a href="community_main.php">커뮤니티</a></li>
+                    <li><a href="resource_page2.php">자료마당</a></li>
+                    <li><a href="notification.html">공지사항</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="chatbot">
+            <div class="container">
+                <div class="chat-window">
+                    <div class="chat-header">
+                        <h2>챗봇 상담</h2>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message bot-message">
+                            안녕하세요, 층간소음 상담  챗봇 콩콩 이에요:) 어떤 도움이 필요하실까요?
+                        </div>
+                        <div class="button-container">
+                            <button class="option-button">챗봇 상담 진행</button>
+                            <button class="option-button">전문 기관 연결</button>
+                            <button class="option-button">이전 상담 기록</button>
+                            <button class="option-button">자주 묻는 질문</button>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="user-input" placeholder="여기에 메시지를 입력하세요..." autocomplete="off">
+                        <button id="send-btn">보내기</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 KONGKONG. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="chatbot_page_js.groovy"></script>
+</body>
+</html>
