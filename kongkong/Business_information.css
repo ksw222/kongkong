@@ -49,71 +49,49 @@ header nav ul li a {
     font-size: 1.2em;
 }
 
-/* 업무 안내 섹션 */
-.guide {
+/* 서비스 섹션 스타일 */
+.services {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 0;
     background: #fff;
-    padding: 70px 0;
-    text-align: center;
 }
 
-.guide h2 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.guide p {
-    font-size: em;
-    color: #666;
-    margin-bottom: 40px;
-}
-
-.guide-section {
+.service-box {
     background-color: #D0E4FF;
     border: 1px solid #3048A0;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+    padding: 40px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
 }
 
-.guide-section h3 {
-    font-size: 1.5em;
+.service-box h3 {
+    font-size: 2em;
     color: #333;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.guide-section p {
-    font-size: 1em;
-    color: #666;
-}
-
-/* 추가 정보 섹션 */
-.additional-info {
-    padding: 50px 0;
-    background: #f4f4f4;
-}
-
-.info-box {
-    background-color: #fff9ef;
-    border: 1px solid #ddd;
-    padding: 20px;
     margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.info-box h3 {
-    font-size: 1.5em;
-    color: #333;
     font-weight: 700;
-    margin-bottom: 10px;
 }
 
-.info-box p {
-    font-size: 1em;
+.service-box p {
+    font-size: 1.1em;
     color: #666;
+    margin-bottom: 20px;
+}
+
+.service-box .icon {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.reverse .icon {
+    left: 20px;
+    right: auto;
 }
 
 /* 푸터 스타일 */
@@ -127,4 +105,3 @@ footer {
 footer p {
     margin: 0;
 }
-
