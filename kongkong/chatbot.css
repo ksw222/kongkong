@@ -72,7 +72,7 @@ header nav ul li a {
 
 .chat-header {
     background-color: #D0E4FF;
-    color: #fff;
+    color: #000000;
     padding: 15px;
     border-radius: 16px 16px 0 0; /* 모서리를 둥글게 */
     text-align: center;
@@ -113,9 +113,9 @@ header nav ul li a {
 .option-button {
     padding: 10px;
     font-size: 1em;
-    font: #fff ;
+    font: #000000 ;
     background-color: #D0E4FF;
-    color: #fff;
+    color: #000000;
     border: none;
     border-radius: 8px; /* 버튼 모서리를 둥글게 */
     cursor: pointer;
@@ -124,12 +124,14 @@ header nav ul li a {
 
 .option-button:hover {
     background-color: #555;
+    color:#ffffff;
 }
 
 .chat-input {
     display: flex;
     padding: 10px;
     border-radius: 0 0 16px 16px; /* 모서리를 둥글게 */
+    color:#000000;
     background-color: #fff;
 }
 
@@ -146,7 +148,7 @@ header nav ul li a {
     padding: 10px;
     margin-left: 10px;
     background-color: #D0E4FF;
-    color: #fff;
+    color: #000000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
