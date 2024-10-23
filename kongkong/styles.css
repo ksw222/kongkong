@@ -1,4 +1,4 @@
-/* styles.css */
+/* main.css */
 
 /* Google Font 적용: Roboto */
 body {
@@ -70,6 +70,23 @@ header nav ul li a {
     color: #081F5C;
 }
 
+/* 마이페이지 버튼 스타일 */
+.mypage-btn {
+    background-color: #fff;
+    color: #081F5C;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 30px;
+    right: 110px; /* 로그인 버튼과 간격을 띄움 */
+}
+
+.mypage-btn:hover {
+    background-color: #d6d6d6;
+    color: #081F5C;
+}
 
 /* 히어로 섹션 스타일 */
 .hero {
