@@ -1,0 +1,117 @@
+/* 공통 스타일 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* 헤더 스타일 */
+header {
+    background: #002F6C;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+/* 공지사항 상세 섹션 */
+.notice-detail {
+    background: #fff;
+    padding: 50px 0;
+}
+
+.notice-detail h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #002F6C;
+    font-weight: 700;
+    text-align: left;
+}
+
+.notice-detail .date {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+.notice-detail .content {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.8;
+    text-align: left;
+}
+
+.notice-detail .content p {
+    margin-bottom: 15px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #002F6C;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.back-btn:hover {
+    background-color: #004A9F;
+    color: #fff;
+}
+
+/* 푸터 스타일 */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}

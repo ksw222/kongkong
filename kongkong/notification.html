@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항 - KONGKONG</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="notification.css"> <!-- CSS 파일 연결 -->
 </head>
 <body>
     <header>
         <div class="container">
-            <h1><a href="kongkong1.html">KONGKONG</a></h1>
+            <h1><a href="kongkong1.html" style="color:white;">KONGKONG</a></h1>
             <nav>
                 <ul>
                     <li><a href="Business_information.html">업무 안내</a></li>
                     <li><a href="chatbot_page.html">챗봇 상담</a></li>
                     <li><a href="community_main.php">커뮤니티</a></li>
-                    <li><a href="resource_page2.php">자료마당</a></li>
+                    <li><a href="resources_page.html">자료마당</a></li>
                     <li><a href="notification.html">공지사항</a></li>
                 </ul>
             </nav>
@@ -27,21 +27,31 @@
         <section class="notice">
             <div class="container">
                 <h2>공지사항</h2>
-                <div class="notice-list">
+
+                <!-- 검색 바 -->
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="공지사항 검색...">
+                    <button onclick="searchNotices()">검색</button>
+                </div>
+
+                <!-- 공지사항 목록 -->
+                <div id="noticeList" class="notice-list">
                     <div class="notice-item">
-                        <h3><a href="#">공지사항 제목 1</a></h3>
+                        <h3><a href="notice_detail.html">공지사항 제목 1</a></h3>
                         <p class="date">2024-08-27</p>
-                        <p class="summary">공지사항의 요약 내용이 이곳에 표시됩니다. 공지사항의 상세 내용을 확인하려면 제목을 클릭하세요.</p>
+                        <p class="summary">이 공지사항은 KONGKONG의 새로운 서비스 업데이트에 관한 내용입니다.</p>
                     </div>
+                    <hr>
                     <div class="notice-item">
-                        <h3><a href="#">공지사항 제목 2</a></h3>
+                        <h3><a href="notice_detail2.html">공지사항 제목 2</a></h3>
                         <p class="date">2024-08-20</p>
-                        <p class="summary">공지사항의 요약 내용이 이곳에 표시됩니다. 공지사항의 상세 내용을 확인하려면 제목을 클릭하세요.</p>
+                        <p class="summary">KONGKONG이 주최하는 이벤트 소식이 담겨 있습니다.</p>
                     </div>
+                    <hr>
                     <div class="notice-item">
-                        <h3><a href="#">공지사항 제목 3</a></h3>
+                        <h3><a href="notice_detail3.html">공지사항 제목 3</a></h3>
                         <p class="date">2024-08-15</p>
-                        <p class="summary">공지사항의 요약 내용이 이곳에 표시됩니다. 공지사항의 상세 내용을 확인하려면 제목을 클릭하세요.</p>
+                        <p class="summary">KONGKONG 서비스 유지보수 일정에 관한 공지사항입니다.</p>
                     </div>
                 </div>
             </div>
@@ -53,5 +63,34 @@
             <p>&copy; 2024 KONGKONG. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // 검색 기능 구현
+        function searchNotices() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const noticeItems = document.querySelectorAll('.notice-item');
+
+            let hasResult = false;
+
+            noticeItems.forEach(item => {
+                const title = item.querySelector('h3 a').innerText.toLowerCase();
+                
+                if (title.includes(input)) {
+                    item.style.display = "block";  // 검색 결과와 일치하면 보여줌
+                    hasResult = true;
+                } else {
+                    item.style.display = "none";  // 일치하지 않으면 숨김
+                }
+            });
+
+            if (!hasResult) {
+                alert('검색 결과가 없습니다.');
+            }
+        }
+    </script>
 </body>
 </html>
+
+
+
+
