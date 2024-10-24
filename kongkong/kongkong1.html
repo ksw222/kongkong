@@ -6,6 +6,38 @@
     <title>KONGKONG - 층간소음 해결방안</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- CSS 파일 연결 -->
+
+    <script>
+        window.onload = function () {
+            updateUserUI(); // 초기 UI 업데이트
+        };
+    
+        function updateUserUI() {
+            const userArea = document.querySelector('.user-area');
+            const isLoggedIn = localStorage.getItem('loggedin');
+            const username = localStorage.getItem('username');
+    
+            if (isLoggedIn === 'true') {
+                userArea.innerHTML = `
+                    <span class="welcome-message">${username}님, 환영합니다!</span>
+                    <a href="#" class="btn logout-btn" onclick="handleLogout(event)">로그아웃</a>
+                `;
+            } else {
+                userArea.innerHTML = `<a href="login.html" class="btn login-btn">로그인</a>`;
+            }
+        }
+    
+        function handleLogout(event) {
+            event.preventDefault();
+            if (confirm('로그아웃 하시겠습니까?')) {
+                localStorage.removeItem('loggedin');
+                localStorage.removeItem('username');
+                alert('로그아웃되었습니다.');
+                location.reload(); // 새로고침하여 UI 업데이트
+            }
+        }
+    </script>
+
 </head>
 <body>
     <header>

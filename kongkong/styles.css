@@ -26,7 +26,13 @@ header {
     background: #081F5C;
     color: #fff;
     padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
+
+
 
 header h1 {
     text-align: center;
@@ -52,8 +58,43 @@ header nav ul li a {
     font-size: 1.2em;
 }
 
+/* 네비게이션 스타일 */
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 10px 0;  /* 상하 여백 추가 */
+}
+
+.navigation ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navigation ul li a {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+/* 사용자 영역 (환영 메시지와 로그아웃 버튼 고정) */
+.user-area {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.welcome-message {
+    font-size: 1rem;
+    color: white;
+}
+
+
 /* 로그인 버튼을 상단 우측으로 배치 */
-.login-btn {
+.login-btn, .logout-btn {
     background-color: #fff;
     color: #081F5C;
     padding: 8px 16px;
@@ -65,7 +106,7 @@ header nav ul li a {
     right: 30px;
 }
 
-.login-btn:hover {
+.login-btn:hover, .logout-btn:hover {
     background-color: #d6d6d6;
     color: #081F5C;
 }

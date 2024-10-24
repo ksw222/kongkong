@@ -1,47 +1,49 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KONGKONG 로그인</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="login.css">
-</head>
-<body>
-    <header>
-        <h1><a href="kongkong1.php">KONGKONG</a></h1>
-    </header>
+<?php
+session_start();
+$host = "localhost";
+$username = "root";
+$password = ""; // XAMPP 기본 비밀번호
+$dbname = "kongkong_db"; // 데이터베이스 이름
+$port = 3307;
 
-    <main>
-        <section class="login-section">
-            <div class="container">
-                <h2>로그인</h2>
+// 데이터베이스 연결
+$conn = new mysqli($host, $username, $password, $dbname, $port);
 
-                <form action="login_check.php" method="post" class="login-form">
-                    <label for="username">아이디</label>
-                    <input type="text" id="username" name="username" required>
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-                    <label for="password">비밀번호</label>
-                    <input type="password" id="password" name="password" required>
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $input_username = $_POST["username"];
+    $input_password = $_POST["password"];
 
-                    <button type="submit" class="btn">로그인</button>
-                </form>
-                <p class="register-link">계정이 없으신가요? <a href="#">회원가입</a></p>
-            </div>
-        </section>
-    </main>
+    // 사용자 이름으로 데이터베이스에서 조회
+    $sql = "SELECT * FROM users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $input_username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    <footer>
-        <p>&copy; 2024 KONGKONG. All rights reserved.</p>
-    </footer>
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        if (password_verify($input_password, $user["password"])) {
+            $_SESSION["username"] = $input_username;
+            echo "
+                <script>
+                    localStorage.setItem('loggedin', 'true');
+                    localStorage.setItem('username', '$input_username');
+                    alert('로그인에 성공했습니다!');
+                    window.location.href = 'kongkong1.html';
+                </script>";
+            exit();
+        } else {
+            echo "<script>alert('비밀번호가 틀렸습니다.'); window.history.back();</script>";
+        }
+    } else {
+        echo "<script>alert('존재하지 않는 사용자입니다.'); window.history.back();</script>";
+    }
 
-    <!-- 로그인 실패 시 JavaScript로 팝업 메시지 표시 -->
-    <script>
-        <?php if (isset($_GET['login']) && $_GET['login'] == 'fail'): ?>
-            window.onload = function() {
-                alert("아이디는 숫자로만 구성될 수 없습니다. 다시 시도해주세요.");
-            }
-        <?php endif; ?>
-    </script>
-</body>
-</html>
+    $stmt->close();
+}
+$conn->close();
+?>
