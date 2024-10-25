@@ -58,7 +58,7 @@ header nav ul li a {
 .mypage-btn {
     background-color: #fff;
     color: #081F5C;
-    padding: 10px 20px; /* 동일한 패딩으로 너비 조정 */
+    padding: 10px 20px ; /* 동일한 패딩으로 너비 조정 */
     border-radius: 5px;
     font-size: 14px;
     font-weight: bold;
@@ -67,11 +67,15 @@ header nav ul li a {
 }
 
 .login-btn {
-    right: 30px; /* 로그인 버튼 위치 */
+    right: 30px; 
+
+    /* 로그인 버튼 위치 */
 }
 
 .mypage-btn {
-    right: 120px; /* 로그인 버튼 왼쪽에 위치 */
+    right: 135px; 
+
+/* 로그인 버튼 왼쪽에 위치 */
 }
 
 .login-btn:hover,

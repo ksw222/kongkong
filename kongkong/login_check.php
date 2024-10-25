@@ -16,7 +16,7 @@ if (preg_match('/^\d+$/', $username)) {
     $_SESSION['username'] = $username;
 
     // 메인 페이지로 리다이렉트
-    header("Location: kongkong1.html");
+    header("Location: kongkong1.php");
     exit;
 }
 ?>

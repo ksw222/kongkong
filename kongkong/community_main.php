@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 // 게시글 목록 가져오기
-$sql = "SELECT id, title, author, date, views FROM community_posts ORDER BY id DESC";
+$sql = "SELECT id, title, author, file_path, date, views FROM community_posts ORDER BY id DESC";
 $result = $conn->query($sql);
 ?>
 
@@ -31,7 +31,7 @@ $result = $conn->query($sql);
 <body>
     <header>
         <div class="container">
-            <h1><a href="kongkong1.html">KONGKONG</a></h1>
+            <h1><a href="kongkong1.php">KONGKONG</a></h1>
             <nav>
                 <ul>
                     <li><a href="Business_information.html">업무 안내</a></li>
@@ -39,7 +39,6 @@ $result = $conn->query($sql);
                     <li><a href="community_main.php">커뮤니티</a></li> <!-- 파일명을 PHP로 변경 -->
                     <li><a href="resource_page2.php">자료마당</a></li>
                     <li><a href="notification.html">공지사항</a></li>
-                    <li><a href="login.html" class="login-btn">Sign In</a></li>
                 </ul>
             </nav>
         </div>
@@ -53,6 +52,7 @@ $result = $conn->query($sql);
                         <th>번호</th>
                         <th>제목</th>
                         <th>작성자</th>
+                        <th>파일</th>
                         <th>날짜</th>
                         <th>조회수</th>
                     </tr>
@@ -68,13 +68,14 @@ $result = $conn->query($sql);
                             echo "<td>" . $row['id'] . "</td>";
                             echo "<td><a href='community_view.php?id=" . $row['id'] . "'>" . htmlspecialchars($row['title']) . "</a></td>";
                             echo "<td>" . htmlspecialchars($row['author']) . "</td>";
+                            echo "<td><a href='download.php?id=" . $row['id'] . "' download>다운로드</a></td>";
                             echo "<td>" . $row['date'] . "</td>";
                             echo "<td>" . $row['views'] . "</td>";
                             echo "</tr>";
                             $row_number++;
                         }
                     } else {
-                        echo "<tr><td colspan='5'>게시글이 없습니다.</td></tr>";
+                        echo "<tr><td colspan='6'>게시글이 없습니다.</td></tr>";
                     }
                     ?>
                 </tbody>

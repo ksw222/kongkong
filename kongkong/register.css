@@ -11,18 +11,6 @@ body {
     height: 100vh;
 }
 
-a {
-    text-decoration: none;
-    color: inherit; /* 링크 색상도 상속받도록 설정 */
-}
-
-h1 {
-    text-align: center;
-    color: #081F5C;
-    font-size: 2em;
-    margin-bottom: 40px;
-}
-
 /* 회원가입 섹션 */
 .signup-section {
     display: flex;
@@ -38,9 +26,11 @@ h1 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
+    max-height: 700px;
+    overflow-y: auto;
 }
 
-/* 회원가입 폼 스타일 */
+/* 폼 입력 스타일 */
 .signup-form h2 {
     text-align: center;
     color: #081F5C;
@@ -48,49 +38,15 @@ h1 {
     margin-bottom: 30px;
 }
 
-.signup-form label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1em;
-    color: #333;
-}
-
-/* 입력란 스타일 */
-.signup-form input[type="text"],
-.signup-form input[type="email"],
-.signup-form input[type="password"],
-.signup-form input[type="number"],
-.signup-form input[type="date"],
-.signup-form input[type="tel"] {
+.signup-form input {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1em;
 }
 
-/* 닉네임 확인 버튼 스타일 */
-.nickname-container {
-    display: flex;
-    align-items: center;
-}
-
-.check-btn {
-    margin-left: 10px;
-    background-color: #081F5C;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.check-btn:hover {
-    background-color: #062A83;
-}
-
-/* 주소 찾기 버튼 스타일 */
+/* 주소 입력 필드와 버튼 정렬 */
 .address-container {
     display: flex;
     align-items: center;
@@ -101,73 +57,13 @@ h1 {
     background-color: #081F5C;
     color: #fff;
     border: none;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 3px;
+    padding: 5px;
     cursor: pointer;
 }
 
 .address-btn:hover {
     background-color: #062A83;
-}
-
-/* 상태 메시지 스타일 */
-.status-message {
-    margin-top: -15px; /* 상단 여백 조정 */
-    margin-bottom: 20px;
-    font-size: 0.9em;
-}
-
-/* 체크박스 스타일 */
-.signup-form label span {
-    margin-left: 5px;
-    font-size: 0.9em;
-    color: #333;
-}
-
-/* 회원가입 버튼 스타일 */
-.signup-form .btn {
-    width: 100%;
-    background-color: #081F5C;
-    color: #fff;
-    padding: 10px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.signup-form .btn:hover {
-    background-color: #062A83;
-}
-
-/* 로그인 링크 스타일 */
-.login-link {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9em;
-    color: #666;
-}
-
-.login-link a {
-    color: #081F5C;
-    text-decoration: none;
-}
-
-.login-link a:hover {
-    text-decoration: underline;
-}
-
-/* 푸터 스타일 */
-footer {
-    color: #404040;
-    font-size: 14px;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
-}
-
-footer p {
-    margin: 0;
 }
 
 /* 주소 찾기 창 스타일 */
@@ -213,4 +109,44 @@ footer p {
     padding: 5px 10px;
     cursor: pointer;
     float: right;
+}
+
+/* 체크박스 스타일 */
+.signup-form label span {
+    margin-left: 5px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* 회원가입 버튼 */
+.signup-form .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #081F5C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.signup-form .btn:hover {
+    background-color: #062A83;
+}
+
+/* 로그인 링크 스타일 */
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.login-link a {
+    color: #081F5C;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
 }

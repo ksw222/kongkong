@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     localStorage.setItem('loggedin', 'true');
                     localStorage.setItem('username', '$input_username');
                     alert('로그인에 성공했습니다!');
-                    window.location.href = 'kongkong1.html';
+                    window.location.href = 'kongkong1.php';
                 </script>";
             exit();
         } else {

@@ -31,7 +31,7 @@ if ($conn->connect_error) {
 <body>
     <header>
         <div class="container">
-            <h1><a href="kongkong1.html">KONGKONG</a></h1>
+            <h1><a href="kongkong1.php">KONGKONG</a></h1>
             <nav>
                 <ul>
                     <li><a href="kongkong1.html">업무 안내</a></li>

@@ -22,7 +22,7 @@ $stmt->bind_param("i", $file_id);
 $stmt->execute();
 
 // 파일 경로 가져오기
-$sql = "SELECT file_path FROM resources WHERE id = ?";
+$sql = "SELECT file_path FROM community_posts WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $file_id);
 $stmt->execute();

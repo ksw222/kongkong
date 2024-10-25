@@ -121,7 +121,7 @@ header nav ul li a {
     font-weight: bold;
     position: absolute;
     top: 30px;
-    right: 110px; /* 로그인 버튼과 간격을 띄움 */
+    right: 130px; /* 로그인 버튼과 간격을 띄움 */
 }
 
 .mypage-btn:hover {
