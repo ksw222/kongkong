@@ -1,0 +1,168 @@
+/* mypage.css */
+
+/* Google Font 적용: Noto Sans KR */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* 링크 색상도 상속받도록 설정 */
+}
+
+/* 컨테이너 스타일 */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* 헤더 스타일 */
+header {
+    background: #081F5C;
+    color: #fff;
+    padding: 20px 0;
+    position: relative;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+/* 로그인 및 마이페이지 버튼 스타일 */
+.login-btn,
+.mypage-btn {
+    background-color: #fff;
+    color: #081F5C;
+    padding: 10px 20px ; /* 동일한 패딩으로 너비 조정 */
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 30px;
+}
+
+.login-btn {
+    right: 30px; 
+
+    /* 로그인 버튼 위치 */
+}
+
+.mypage-btn {
+    right: 135px; 
+
+/* 로그인 버튼 왼쪽에 위치 */
+}
+
+.login-btn:hover,
+.mypage-btn:hover {
+    background-color: #d6d6d6;
+    color: #081F5C;
+}
+
+/* 프로필 이미지 스타일 */
+.profile-img {
+    width: 150px; /* 원하는 사이즈로 조정 */
+    height: 150px; /* 원하는 사이즈로 조정 */
+    border-radius: 10px;
+    border: 2px solid #081F5C;
+    cursor: pointer;
+    background-color: #fff; /* 배경 색상 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 내 정보 박스 스타일 */
+.info-box {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* 각 정보 항목 구분선 스타일 */
+.info-item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+/* 제목 스타일 */
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* 연락처 및 정보 스타일 */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* 버튼 스타일 */
+.btn {
+    background: #081F5C;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #e8491d;
+}
+
+/* 푸터 스타일 */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
