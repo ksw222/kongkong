@@ -1,3 +1,84 @@
+/* 기본 설정 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #081F5C;
+    padding: 20px 0;
+}
+
+header .container {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 36px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* 게시판 종류 네비게이션 스타일 */
+.board-nav {
+    background-color: #FFF9EF;
+    border-bottom: 1px solid #B7B7B7;
+    padding: 10px 0;
+}
+
+.board-nav .container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.board-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.board-nav ul li a {
+    font-size: 20px;
+    font-weight: 700;
+    color: #081F5C;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+.board-nav ul li a:hover {
+    background-color: #3048A0;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
 /* 게시글 내용 */
 .post-content {
     width: 800px;
