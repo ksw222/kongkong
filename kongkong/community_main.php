@@ -1,22 +1,19 @@
 <?php
 // 데이터베이스 연결 설정
-$servername = "localhost";
-$username = "root";
-$password = "";  // MySQL 비밀번호
-$dbname = "kongkong_db";
-$port = 3307;
+$host = 'localhost';
+$db = 'kongkong_db';
+$user = 'root';
+$pass = '';
+$port = 3306;
+$conn = new mysqli($host, $user, $pass, $db, $port);
 
-// 데이터베이스 연결
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
-
-// 연결 확인
+// 연결 오류 확인
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die('Database connection failed: ' . $conn->connect_error);
 }
 
-// 게시글 목록 가져오기
-$sql = "SELECT id, title, author, file_path, date, views FROM community_posts ORDER BY id DESC";
-$result = $conn->query($sql);
+// 게시글 목록 조회
+$result = $conn->query("SELECT * FROM community_posts ORDER BY uploaded_at DESC");
 ?>
 
 <!DOCTYPE html>
@@ -37,59 +34,44 @@ $result = $conn->query($sql);
                     <li><a href="Business_information.html">업무 안내</a></li>
                     <li><a href="chatbot_page.html">챗봇 상담</a></li>
                     <li><a href="community_main.php">커뮤니티</a></li> <!-- 파일명을 PHP로 변경 -->
-                    <li><a href="resource_page2.php">자료마당</a></li>
+                    <li><a href="inquiry.html">문의하기</a></li>
                     <li><a href="notification.html">공지사항</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <main>
-        <section class="post-list">
-            <h2>커뮤니티 게시글</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>작성자</th>
-                        <th>파일</th>
-                        <th>날짜</th>
-                        <th>조회수</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-
-                    $row_number = 1; // 번호를 1부터 시작
-
-                    if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>" . $row['id'] . "</td>";
-                            echo "<td><a href='community_view.php?id=" . $row['id'] . "'>" . htmlspecialchars($row['title']) . "</a></td>";
-                            echo "<td>" . htmlspecialchars($row['author']) . "</td>";
-                            echo "<td><a href='download.php?id=" . $row['id'] . "' download>다운로드</a></td>";
-                            echo "<td>" . $row['date'] . "</td>";
-                            echo "<td>" . $row['views'] . "</td>";
-                            echo "</tr>";
-                            $row_number++;
-                        }
-                    } else {
-                        echo "<tr><td colspan='6'>게시글이 없습니다.</td></tr>";
-                    }
-                    ?>
-                </tbody>
-            </table>
-            <a href="community_writing.html"><button class="write-btn">글쓰기</button></a>
-            
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 KONGKONG. All rights reserved.</p>
+    <div class="post-list">
+        <h2>커뮤니티 게시글</h2>
+        <table>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>파일</th>
+                <th>날짜</th>
+                <th>조회수</th>
+            </tr>
+            <?php while ($row = $result->fetch_assoc()): ?>
+            <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><a href="community_view.php?id=<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['title']); ?></a></td>
+                <td><?php echo htmlspecialchars($row['author']); ?></td>
+                <td>
+                    <?php if ($row['filename']): ?>
+                        <a href="<?php echo $row['filepath']; ?>" download>다운로드</a>
+                    <?php else: ?>
+                        없음
+                    <?php endif; ?>
+                </td>
+                <td><?php echo $row['uploaded_at']; ?></td>
+                <td><?php echo $row['views']; ?></td>
+            </tr>
+            <?php endwhile; ?>
+        </table>
+        <div class="form-actions">
+            <a href="community_writing.php" class="submit-btn">글쓰기</a>
         </div>
-    </footer>
+    </div>
 </body>
 </html>
 

@@ -1,58 +1,42 @@
 <?php
 // 데이터베이스 연결 설정
-$servername = "localhost";
-$username = "root";
-$password = ""; // XAMPP 기본 비밀번호
-$dbname = "kongkong_db"; // 데이터베이스 이름
-$port = 3307; // XAMPP에서 사용하는 MySQL 포트
+$host = 'localhost';
+$db = 'kongkong_db';
+$user = 'root';
+$pass = '';
+$port = 3306;
+$conn = new mysqli($host, $user, $pass, $db, $port);
 
-// MySQLi 연결
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
-
-// 연결 확인
+// 연결 오류 확인
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die('Database connection failed: ' . $conn->connect_error);
 }
 
-// 게시글 아이디를 URL에서 가져오기
-$post_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+// 게시글 ID 확인
+$post_id = isset($_GET['id']) ? $_GET['id'] : null;
 
-if ($post_id == 0) {
-    die("유효한 게시글 ID가 아닙니다.");
+if (!$post_id) {
+    echo "잘못된 접근입니다.";
+    exit();
 }
 
-// Prepared Statement 사용하여 게시글 조회
+// 게시글 조회
+$query = $conn->prepare("SELECT * FROM community_posts WHERE id = ?");
+$query->bind_param('i', $post_id);
+$query->execute();
+$result = $query->get_result();
+$post = $result->fetch_assoc();
 
-$post_sql = "SELECT * FROM community_posts WHERE id = ?";
-$stmt = $conn->prepare($post_sql);
-$stmt->bind_param("i", $post_id);  // 정수형으로 바인딩
-$stmt->execute();
-$post_result = $stmt->get_result();
-
-if ($post_result->num_rows > 0) {
-    $post = $post_result->fetch_assoc();
-} else {
-    die("게시글을 찾을 수 없습니다.");
+if (!$post) {
+    echo "해당 게시글을 찾을 수 없습니다.";
+    exit();
 }
 
-$created_at = isset($post['created_at']) ? $post['created_at'] : '작성일 없음';
-    
+// 조회수 증가
+$conn->query("UPDATE community_posts SET views = views + 1 WHERE id = $post_id");
 
-// 댓글 작성 처리
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['comment'])) {
-    $comment = $conn->real_escape_string($_POST['comment']);
-    $author = "사용자"; // 실제로는 로그인된 사용자 이름을 넣을 수 있음
-    $comment_sql = "INSERT INTO comments (post_id, content, author) VALUES ('$post_id', '$comment', '$author')";
-    if ($conn->query($comment_sql) === TRUE) {
-        echo "댓글이 성공적으로 작성되었습니다.";
-    } else {
-        echo "댓글 작성 중 오류가 발생했습니다: " . $conn->error;
-    }
-}
-
-// 해당 게시글의 댓글 조회
-$comment_sql = "SELECT * FROM comments WHERE post_id = $post_id ORDER BY created_at DESC";
-$comment_result = $conn->query($comment_sql);
+// 댓글 목록 조회
+$comments = $conn->query("SELECT * FROM comments WHERE post_id = $post_id ORDER BY created_at DESC");
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +48,7 @@ $comment_result = $conn->query($comment_sql);
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="community_main1.css">
 </head>
-<body>
+
     <header>
         <div class="container">
             <h1><a href="kongkong1.php">KONGKONG</a></h1>
@@ -73,67 +57,67 @@ $comment_result = $conn->query($comment_sql);
                     <li><a href="Business_information.html">업무 안내</a></li>
                     <li><a href="chatbot_page.html">챗봇 상담</a></li>
                     <li><a href="community_main.php">커뮤니티</a></li>
-                    <li><a href="resource_page2.php">자료마당</a></li>
+                    <li><a href="inquiry.php">문의하기</a></li>
                     <li><a href="notification.html">공지사항</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+<body>
+<div class="post-content">
+    <h2><?php echo htmlspecialchars($post['title']); ?></h2>
+    <div class="post-details">
+        <span><strong>작성자:</strong> <?php echo htmlspecialchars($post['author'] ?? '알 수 없음'); ?></span>
+        <span><strong>작성일:</strong> <?php echo $post['uploaded_at'] ?? '알 수 없음'; ?></span>
+    </div>
+    <div class="post-body">
+        <p><?php echo nl2br(htmlspecialchars($post['content'] ?? '내용 없음')); ?></p>
+        <?php if (!empty($post['filename']) && !empty($post['filepath'])): ?>
+        <p><a href="<?php echo htmlspecialchars($post['filepath']); ?>" download="<?php echo htmlspecialchars($post['filename']); ?>">첨부파일 다운로드</a></p>
+        <?php else: ?>
+            <p>첨부된 파일이 없습니다.</p>
+        <?php endif; ?>
+    </div>
+</div>
 
-    <main>
-        
-        <section class="post-content">
-            <h2><?php echo htmlspecialchars($post['title']); ?></h2>
-            <div class="post-details">
-                <span>작성자: <?php echo htmlspecialchars($post['author']); ?></span>
-                <span>날짜: <?php echo htmlspecialchars($created_at); ?></span>
-                <span>조회수: <?php echo htmlspecialchars($post['views']); ?></span>
+<div class="comment-section">
+    <h3>댓글</h3>
+
+    <!-- 댓글 목록 -->
+    <div class="comments-container">
+        <?php if ($comments->num_rows > 0): ?>
+            <?php while ($comment = $comments->fetch_assoc()): ?>
+                <div class="comment">
+                    <p class="comment-author"><?php echo htmlspecialchars($comment['author']); ?></p>
+                    <p><?php echo nl2br(htmlspecialchars($comment['content'])); ?></p>
+                    <p class="comment-date"><?php echo $comment['created_at']; ?></p>
+                </div>
+            <?php endwhile; ?>
+        <?php else: ?>
+            <p>댓글이 없습니다. 첫 댓글을 작성해보세요!</p>
+        <?php endif; ?>
+    </div>
+
+    <!-- 댓글 작성 폼 -->
+    <div class="comment-form">
+        <form action="comment_post.php" method="POST">
+            <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+            <textarea class="comment-area" name="content" placeholder="댓글을 입력하세요..." required></textarea>
+            <div style="display: flex; gap: 10px;">
+                <button type="submit" class="comment-submit">댓글 작성</button>
+                <button type="button" class="back-btn" onclick="history.back()">이전</button>
             </div>
-            <div class="post-body">
-                <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
-            </div>
-        
+        </form>
+    </div>
+</div>
 
-        <section class="comment-section">
-            <h3>댓글</h3>
 
-            <!-- 댓글 목록 표시 -->
-            <?php
-            if ($comment_result->num_rows > 0) {
-                while($comment = $comment_result->fetch_assoc()) {
-                    echo "<div class='comment'>";
-                    echo "<span class='comment-author'>" . htmlspecialchars($comment['author']) . "</span>";
-                    echo "<span class='comment-date'>" . htmlspecialchars($comment['created_at']) . "</span>";
-                    echo "<p>" . nl2br(htmlspecialchars($comment['content'])) . "</p>";
-                    echo "</div>";
-                }
-            } else {
-                echo "<p>댓글이 없습니다.</p>";
-            }
-            ?>
-
-            <!-- 댓글 작성 폼 -->
-            <div class="comment-form">
-                <form action="" method="POST">
-                    <textarea name="comment" class="comment-area" placeholder="댓글을 작성해주세요..." required></textarea><br>
-                    <button type="submit" class="comment-submit">댓글 작성</button>
-                    <button type="submit" class="comment-submit" onclick="window.location.href='community_main.php'">이전</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 KONGKONG. All rights reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>
 
+
+
+
 <?php
-// 데이터베이스 연결 종료
 $conn->close();
-
-
 ?>
