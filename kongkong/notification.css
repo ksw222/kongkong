@@ -1,0 +1,138 @@
+/* 공통 스타일 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* 헤더 스타일 */
+header {
+    background: #002F6C;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+/* 공지사항 섹션 */
+.notice {
+    background: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.notice h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #002F6C;
+    font-weight: 700;
+}
+
+/* 검색 바 스타일 */
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #002F6C;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #004A9F;
+}
+
+.notice-list {
+    margin-top: 20px;
+}
+
+.notice-item {
+    padding: 8px 0;
+    text-align: left;
+}
+
+.notice-item h3 {
+    font-size: 1.4em;
+    color: #002F6C;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.notice-item .date {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.notice-item .summary {
+    font-size: 1em;
+    color: #333;
+    margin-top: 3px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 10px 0;  /* 구분선 사이의 마진을 줄였습니다 */
+}
+
+/* 푸터 스타일 */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+

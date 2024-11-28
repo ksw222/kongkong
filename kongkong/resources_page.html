@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONGKONG 자료마당</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="kongkong1.php">KONGKONG</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="kongkong1.html">업무 안내</a></li>
+                    <li><a href="chatbot_page.html">챗봇 상담</a></li>
+                    <li><a href="community_main.html">커뮤니티</a></li>
+                    <li><a href="resources_page.html">자료마당</a></li>
+                    <li><a href="notification.html">공지사항</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="resources-list">
+            <h2>자료마당</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>자료 제목</th>
+                        <th>작성자</th>
+                        <th>날짜</th>
+                        <th>파일</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>예시 자료 제목 1</td>
+                        <td>작성자1</td>
+                        <td>2024-08-11</td>
+                        <td><a href="#">다운로드</a></td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>예시 자료 제목 2</td>
+                        <td>작성자2</td>
+                        <td>2024-08-10</td>
+                        <td><a href="#">다운로드</a></td>
+                        <td>120</td>
+                    </tr>
+                    <!-- 추가 자료 행 -->
+                </tbody>
+            </table>
+            <button class="upload-btn">자료 업로드</button>
+        </section>
+
+        <section class="upload-section">
+            <h2>자료 업로드</h2>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">자료 제목</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="file">파일 선택</label>
+                    <input type="file" id="file" name="file" required>
+                </div>
+                <button type="submit" class="submit-btn">업로드</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 KONGKONG. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

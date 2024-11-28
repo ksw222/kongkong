@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONGKONG - 챗봇 상담</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="kongkong1.php">KONGKONG</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="Business_information.html">업무 안내</a></li>
+                    <li><a href="chatbot_page.html">챗봇 상담</a></li>
+                    <li><a href="community_main.php">커뮤니티</a></li>
+                    <li><a href="resource_page2.php">자료마당</a></li>
+                    <li><a href="notification.html">공지사항</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="chatbot">
+            <div class="container">
+                <div class="chat-window">
+                    <div class="chat-header">
+                        <h2>챗봇 상담</h2>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message bot-message">
+                            안녕하세요, 층간소음 상담 챗봇 콩콩이에요. 아래에서 해당되는 카테고리를 선택하고 궁금한 사항을 입력해 주세요.
+                        </div>
+                    </div>
+
+                    <div class="category-form">
+                        <h3>1. 주 소음원 선택</h3>
+                        <label><input type="checkbox" name="noise_source" value="뛰거나 걷는 소리"> 뛰거나 걷는 소리</label>
+                        <label><input type="checkbox" name="noise_source" value="악기"> 악기</label>
+                        <label><input type="checkbox" name="noise_source" value="가구 끄는 소리"> 가구 끄는 소리</label>
+
+                        <h3>2. 주택 형태</h3>
+                        <label><input type="radio" name="house_type" value="아파트"> 아파트</label>
+                        <label><input type="radio" name="house_type" value="연립주택"> 연립주택</label>
+                        <label><input type="radio" name="house_type" value="단독주택"> 단독주택</label>
+
+                        <h3>3. 피해 유형</h3>
+                        <label><input type="checkbox" name="damage_type" value="윗집"> 윗집</label>
+                        <label><input type="checkbox" name="damage_type" value="옆집"> 옆집</label>
+                        <label><input type="checkbox" name="damage_type" value="아랫집"> 아랫집</label>
+                    </div>
+
+                    <div class="chat-input">
+                        <input type="text" id="user-input" placeholder="여기에 메시지를 입력하세요..." autocomplete="off">
+                        <button id="send-btn">보내기</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 KONGKONG. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="chatbot.js"></script> <!-- JavaScript 파일 연결 -->
+</body>
+</html>
